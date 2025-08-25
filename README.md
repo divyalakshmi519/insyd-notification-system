@@ -1,74 +1,104 @@
-Insyd Notification System
+# INSYD Notification System – Proof of Concept (POC)
 
-A real-time notification system designed to deliver instant alerts to users through a web interface.
+## Overview
+The **INSYD Notification System** is a proof of concept (POC) that demonstrates how notifications can be triggered and delivered in a social media–like application.  
+It integrates **database design, backend APIs, and frontend UI** into a single working model, making it easy to understand how DBMS concepts are applied in real-world applications.
 
-🚀 Features
+---
 
-Real-Time Notifications: Instant delivery of messages to users without page refresh.
+## Notification POC – How It Works
 
-WebSocket Integration: Utilizes WebSockets for seamless communication.
+- **User Registration & Login**  
+  - Users are uniquely identified and stored in the database.  
+  - Authentication ensures only registered users can access the system.  
 
-User-Friendly Interface: Simple and intuitive UI for managing notifications.
+- **Creating Posts**  
+  - Logged-in users can create posts.  
+  - Each post is tied to the user and stored with a timestamp.  
 
-Customizable Alerts: Support for various notification types and priorities.
-GitHub
-+2
-GitHub
-+2
+- **Generating Notifications**  
+  - When another user interacts (likes, comments, or follows), a notification entry is automatically created.  
+  - These notifications are stored in the database with event details.  
 
-🛠️ Installation
-Prerequisites
+- **Viewing Notifications**  
+  - The frontend shows a notification icon with a count in the header.  
+  - Clicking the icon reveals all unread notifications for the user.  
 
-Ensure you have Node.js installed.
+- **Real-time Updates**  
+  - As soon as a new event occurs, the notification list updates dynamically without refreshing the page.  
 
-Install npm (Node Package Manager).
+---
 
-Steps
+## Tech Stack
 
-Clone the Repository
+- **Database:** SQLite (lightweight for POC, scalable to MySQL/PostgreSQL)  
+- **Backend:** Node.js + Express.js REST APIs  
+- **Frontend:** React.js with modular components *(Login, Home, Header, Notifications, PostForm)*  
+- **Deployment:**  
+  - Frontend → **Netlify**  
+  - Backend → **Railway**  
+- **Version Control:** GitHub for collaboration and updates  
 
-git clone https://github.com/divyalakshmi519/insyd-notification-system.git
+---
 
+## Database Schema
 
-Navigate to Project Directory
+The system uses relational tables to handle users, posts, and notifications:
 
-cd insyd-notification-system
+- **Users Table** → stores login and identity details  
+- **Posts Table** → stores all user posts  
+- **Notifications Table** → stores events like likes, comments, and follows linked to users  
 
+Detailed relationships are shown in the **ER Diagram**.  
 
-Install Dependencies
+---
 
+## Features
+
+- **Secure Login System**  
+- **Post Creation & Management**  
+- **Dynamic Notifications with Count Badge**  
+- **Notification History View**  
+- **Real-time Updates Without Page Reload**  
+- **Responsive UI for seamless use**  
+
+---
+
+## 🏁 Getting Started
+
+### Database Setup
+```bash
+Run the SQL script `notifications.sql` to initialize tables.
+````
+
+### Backend Setup
+
+```bash
+cd server
 npm install
-
-
-Start the Application
-
 npm start
+```
 
+### Frontend Setup
 
-The application will be accessible at http://localhost:3000
-.
+```bash
+cd client
+npm install
+npm run dev
+```
 
-📦 Project Structure
+### Run the App
 
-/frontend: Contains the client-side application built with HTML, CSS, and JavaScript.
+Visit → **[http://localhost:5173](http://localhost:5173)**
 
-/backend: Handles server-side logic and WebSocket connections.
+---
 
-📋 Usage
+## Future Enhancements
 
-Open the application in your browser.
+* Add user-to-user direct messaging
+* Support media uploads in posts
+* Introduce push notifications (web & mobile)
+* Role-based access control
 
-Use the provided interface to send and receive notifications in real-time.
-GitHub Docs
-+1
+---
 
-🧪 Testing
-
-To run tests, use the following command:
-
-  npm test
-
-
-📄 License
-
-This project is licensed under the MIT License.
