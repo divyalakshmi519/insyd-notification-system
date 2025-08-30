@@ -7,7 +7,7 @@ function FollowersList({ currentUser }) {
   const fetchFollowers = useCallback(() => {
     if (!currentUser) return;
 
-    fetch(`http://localhost:5000/api/users/${currentUser.id}/followers`)
+    fetch(`https://insyd-notification-system-0rnr.onrender.com/api/users/${currentUser.id}/followers`)
     .then(res => res.json())
     .then(data => setFollowers(Array.isArray(data) ? data : []))
     .catch(err => console.error("Error fetching followers:", err));
