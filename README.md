@@ -1,31 +1,31 @@
 # INSYD Notification System – Proof of Concept (POC)
 
 ## Overview
-The **INSYD Notification System** is a proof of concept (POC) that demonstrates how notifications can be triggered and delivered in a social media–like application.  
-It integrates **database design, backend APIs, and frontend UI** into a single working model, making it easy to understand how DBMS concepts are applied in real-world applications.
+The **INSYD Notification System** is a full-stack deployed POC demonstrating how notifications can be triggered and delivered in a social media–like application.  
+It integrates **database design, backend APIs, and frontend UI** into a working system, showing how DBMS concepts are applied in real-world applications.
 
 ---
 
-## Notification POC – How It Works
+## How It Works
 
-- **User Registration & Login**  
-  - Users are uniquely identified and stored in the database.  
-  - Authentication ensures only registered users can access the system.  
+### - User Registration & Login
+- Users are uniquely identified and stored in the database.  
+- Authentication ensures only registered users can access the system.  
 
-- **Creating Posts**  
-  - Logged-in users can create posts.  
-  - Each post is tied to the user and stored with a timestamp.  
+### - Creating Posts
+- Logged-in users can create posts.  
+- Each post is tied to a user and stored with a timestamp.  
 
-- **Generating Notifications**  
-  - When another user interacts (likes, comments, or follows), a notification entry is automatically created.  
-  - These notifications are stored in the database with event details.  
+### - Generating Notifications
+- When another user interacts (**likes, comments, or follows**), a notification entry is automatically created.  
+- Notifications are stored in the database with **event details**.  
 
-- **Viewing Notifications**  
-  - The frontend shows a notification icon with a count in the header.  
-  - Clicking the icon reveals all unread notifications for the user.  
+### - Viewing Notifications
+- The frontend displays a **notification icon with count** in the header.  
+- Clicking the icon reveals all unread notifications for the user.  
 
-- **Real-time Updates**  
-  - As soon as a new event occurs, the notification list updates dynamically without refreshing the page.  
+### - Real-time Updates
+- Notifications are dynamically updated as soon as a new event occurs, **without page refresh**.  
 
 ---
 
@@ -35,21 +35,19 @@ It integrates **database design, backend APIs, and frontend UI** into a single w
 - **Backend:** Node.js + Express.js REST APIs  
 - **Frontend:** React.js with modular components *(Login, Home, Header, Notifications, PostForm)*  
 - **Deployment:**  
-  - Frontend → **Netlify**  
-  - Backend → **Railway**  
-- **Version Control:** GitHub for collaboration and updates  
+  - Frontend → [Netlify](https://68b2f4d52fd3df6ff8d14960--insyd-notification-system.netlify.app/login)  
+  - Backend → [Render](https://insyd-notification-system-0rnr.onrender.com/api/users)  
+- **Version Control:** GitHub → [Repository Link](https://github.com/divyalakshmi519/insyd-notification-system)  
 
 ---
 
-## Database Schema
+## Backend API Endpoints
 
-The system uses relational tables to handle users, posts, and notifications:
-
-- **Users Table** → stores login and identity details  
-- **Posts Table** → stores all user posts  
-- **Notifications Table** → stores events like likes, comments, and follows linked to users  
-
-Detailed relationships are shown in the **ER Diagram**.  
+- **Users:** `/api/users`  
+- **Posts:** `/api/posts`  
+- **Likes:** `/api/likes`  
+- **Followers:** `/api/followers`  
+- **Notifications:** `/api/notifications`  
 
 ---
 
@@ -60,36 +58,40 @@ Detailed relationships are shown in the **ER Diagram**.
 - **Dynamic Notifications with Count Badge**  
 - **Notification History View**  
 - **Real-time Updates Without Page Reload**  
-- **Responsive UI for seamless use**  
+- **Responsive UI for Seamless Use**  
 
 ---
 
-## 🏁 Getting Started
+## Getting Started
 
-### Database Setup
+### - Backend
+- Deployment → [Render](https://insyd-notification-system-0rnr.onrender.com/api/users)  
+- Ensure **CORS** is enabled for frontend requests.  
+
+### - Frontend
+- Deployment → [Netlify](https://68b2f4d52fd3df6ff8d14960--insyd-notification-system.netlify.app/login)  
+
+### - Run Locally
+
+#### Backend
 ```bash
-Run the SQL script `notifications.sql` to initialize tables.
-````
-
-### Backend Setup
-
-```bash
-cd server
+cd backend
 npm install
 npm start
+
 ```
 
 ### Frontend Setup
 
 ```bash
-cd client
+cd frontend
 npm install
 npm run dev
 ```
 
 ### Run the App
 
-Visit → **[http://localhost:5173](http://localhost:5173)**
+Visit → **[http://localhost:3000](http://localhost:3000)**
 
 ---
 
