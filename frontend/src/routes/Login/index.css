@@ -1,0 +1,46 @@
+.login-container {
+  width: 400px;
+  margin: 50px auto;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+.new-user,
+.existing-user {
+  margin: 15px 0;
+}
+
+input[type="text"],
+select {
+  width: 80%;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 8px 15px;
+  margin-top: 5px;
+  border: none;
+  background-color: #0077ff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005fcc;
+}
+
+.divider {
+  margin: 15px 0;
+  font-weight: bold;
+}
