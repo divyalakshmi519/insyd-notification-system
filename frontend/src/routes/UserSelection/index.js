@@ -10,7 +10,7 @@ const UserSelection = ({ onUserSelect, users, loading, error }) => {
         if (username.trim()) {
             setIsCreating(true);
             try {
-                const response = await fetch('http://localhost:5000/api/users', {
+                const response = await fetch('https://insyd-notification-system-0rnr.onrender.com/api/users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const UserSelection = ({ onUserSelect, users, loading, error }) => {
 
     return (
         <div className="user-selection">
-            <h2>👋 Welcome to Social Dashboard</h2>
+            <h2>Welcome to Social Dashboard</h2>
             
             {error && <div className="error-message">{error}</div>}
             
