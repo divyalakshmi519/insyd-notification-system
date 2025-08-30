@@ -7,7 +7,7 @@ function FollowingList({ currentUser }) {
   const loadFollowing = useCallback(() => {
     if (!currentUser) return;
 
-    fetch(`http://localhost:5000/api/users/${currentUser.id}/following`)
+    fetch(`https://insyd-notification-system-0rnr.onrender.com/api/users/${currentUser.id}/following`)
       .then(res => res.json())
       .then(data => setFollowing(Array.isArray(data) ? data : []))
       .catch(err => console.error(err));
