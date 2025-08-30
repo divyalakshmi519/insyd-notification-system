@@ -7,7 +7,7 @@ function Home({ currentUser, setCurrentUser }) {
   const navigate = useNavigate();
 
   const fetchNotifCount = useCallback(() => {
-    fetch(`http://localhost:5000/api/notifications/${currentUser.id}`)
+    fetch(`https://insyd-notification-system-0rnr.onrender.com/api/notifications/${currentUser.id}`)
       .then(res => res.json())
       .then(data => setNotifCount(Array.isArray(data) ? data.length : 0))
       .catch(err => console.error(err));
