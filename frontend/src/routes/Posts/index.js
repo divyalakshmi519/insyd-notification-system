@@ -6,7 +6,7 @@ function Posts({ currentUser }) {
   const [content, setContent] = useState("");
 
   const fetchPosts = () => {
-    fetch("http://localhost:5000/api/posts")
+    fetch("https://insyd-notification-system-0rnr.onrender.com/api/posts")
       .then(res => res.json())
       .then(data => setPosts(Array.isArray(data) ? data : []))
       .catch(err => console.error(err));
@@ -14,7 +14,7 @@ function Posts({ currentUser }) {
 
   const createPost = () => {
     if (!content.trim()) return;
-    fetch("http://localhost:5000/api/posts", {
+    fetch("https://insyd-notification-system-0rnr.onrender.com/api/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId: currentUser.id, content })
@@ -24,7 +24,7 @@ function Posts({ currentUser }) {
   };
 
   const likePost = (postId, type) => {
-    fetch("http://localhost:5000/api/likes", {
+    fetch("https://insyd-notification-system-0rnr.onrender.com/api/likes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId: currentUser.id, postId, type })
