@@ -10,7 +10,7 @@ function Login({ setCurrentUser }) {
 
   // Fetch existing users
   useEffect(() => {
-    fetch("http://localhost:5000/api/users")
+    fetch("https://insyd-notification-system-0rnr.onrender.com/api/users")
       .then((res) => res.json())
       .then((data) => setUsers(Array.isArray(data) ? data : []))
       .catch((err) => console.error("Error fetching users:", err));
