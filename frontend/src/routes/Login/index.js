@@ -20,7 +20,7 @@ function Login({ setCurrentUser }) {
   const handleCreateUser = async () => {
     if (!username.trim()) return alert("Enter a username");
     try {
-      const res = await fetch("http://localhost:5000/api/users", {
+      const res = await fetch("https://insyd-notification-system-0rnr.onrender.com/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email: `${username}@mail.com` }),
