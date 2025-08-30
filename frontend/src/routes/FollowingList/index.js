@@ -17,19 +17,16 @@ function FollowingList({ currentUser }) {
     loadFollowing();
   }, [loadFollowing]);
 
-  const unfollow = (userId) => {
-  if (!currentUser?.id || !userId) return;
-  fetch("http://localhost:5000/api/followers/unfollow", {
-    method: "POST", // POST is safer than DELETE with JSON body
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ followerId: currentUser.id, followingId: userId }),
-  })
-  .then(() => loadFollowing())
-  .catch(err => console.error("Unfollow failed:", err));
-};
-
-
-
+//   const unfollow = (userId) => {
+//   if (!currentUser?.id || !userId) return;
+//   fetch("http://localhost:5000/api/followers/unfollow", {
+//     method: "POST", // POST is safer than DELETE with JSON body
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({ followerId: currentUser.id, followingId: userId }),
+//   })
+//   .then(() => loadFollowing())
+//   .catch(err => console.error("Unfollow failed:", err));
+// };
 
   return (
     <div>
