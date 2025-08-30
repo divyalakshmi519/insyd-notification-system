@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import "./index.css";
 
 function Discover({ currentUser }) {
   const [users, setUsers] = useState([]);
   const [followingIds, setFollowingIds] = useState([]);
 
-  const loadData = () => {
+  const loadData = useCallback(() => {
     if (!currentUser) return;
 
     Promise.all([
@@ -19,11 +19,11 @@ function Discover({ currentUser }) {
       setFollowingIds(fIds);
     })
     .catch(err => console.error(err));
-  };
+  }, [currentUser]);
 
   useEffect(() => {
     loadData();
-  }, [currentUser]);
+  }, [loadData]);
 
   const follow = (userId) => {
     if (followingIds.includes(userId)) return;
@@ -34,7 +34,7 @@ function Discover({ currentUser }) {
       body: JSON.stringify({ followerId: currentUser.id, followingId: userId }),
     })
     .then(res => res.json())
-    .then(() => loadData()) // reload after follow
+    .then(() => loadData())
     .catch(err => console.error("Follow failed:", err));
   };
 
@@ -47,7 +47,7 @@ function Discover({ currentUser }) {
     <div>
       <h3>Discover Users</h3>
       {visibleUsers.length === 0 ? (
-        <p>No new users to discover 🎉</p>
+        <p>No new users to discover</p>
       ) : (
         visibleUsers.map(u => (
           <div key={u.id} className="user-card">
