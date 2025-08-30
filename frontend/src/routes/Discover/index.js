@@ -9,8 +9,8 @@ function Discover({ currentUser }) {
     if (!currentUser) return;
 
     Promise.all([
-      fetch("http://localhost:5000/api/users").then(r => r.json()),
-      fetch(`http://localhost:5000/api/users/${currentUser.id}/following`).then(r => r.json())
+      fetch("https://insyd-notification-system-0rnr.onrender.com/api/users").then(r => r.json()),
+      fetch(`https://insyd-notification-system-0rnr.onrender.com/api/users/${currentUser.id}/following`).then(r => r.json())
     ])
     .then(([allUsers, following]) => {
       const others = Array.isArray(allUsers) ? allUsers.filter(u => u.id !== currentUser.id) : [];
@@ -28,7 +28,7 @@ function Discover({ currentUser }) {
   const follow = (userId) => {
     if (followingIds.includes(userId)) return;
 
-    fetch("http://localhost:5000/api/followers/follow", {
+    fetch("https://insyd-notification-system-0rnr.onrender.com/api/followers/follow", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ followerId: currentUser.id, followingId: userId }),
