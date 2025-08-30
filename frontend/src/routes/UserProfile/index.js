@@ -5,7 +5,7 @@ function UserProfile({ userId }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/users/${userId}`)
+    fetch(`https://insyd-notification-system-0rnr.onrender.com/api/users/${userId}`)
       .then(res => res.json())
       .then(data => setUser(data))
       .catch(err => console.error(err));
